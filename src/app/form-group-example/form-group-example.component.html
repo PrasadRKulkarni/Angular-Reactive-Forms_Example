@@ -1,0 +1,22 @@
+<h3>Reactive Forms - Form Group</h3>
+
+<form [formGroup]="addLoanFormGroup">
+
+    <input type="text" formControlName="loanName">
+
+    <div class="txt-danger" *ngIf="addLoanFormGroup.get('loanName').hasError('required') && 
+                             addLoanFormGroup.get('loanName').touched">
+        Loan name is required
+    </div>
+
+    <br /><br />
+
+    <textarea formControlName="loanDesc" cols="30" rows="10"></textarea> <br /><br />
+
+    <button (click)="addLoan()" [disabled]="!addLoanFormGroup.valid">Add Loan</button>
+
+    &nbsp;
+
+    <button (click)="reset()">Reset</button>
+
+</form>
